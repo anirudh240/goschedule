@@ -6,10 +6,11 @@ A go scheduler used to prioritize jobs or run jobs concurrently or parallely
 
 ## Why I built this
 I built this to get a better understanding of GOLANG, this is my first ever project, 
-this project helps me understand how API's work and also the scheduling bit. 
+this project helps me understand how API's work and also the scheduling bit. Ive wanted to learn the core concepts and explore on how job schedulings work under the hood
 The concept of error handling and the difference between concurrency and parallelism 
 I was actively contributing to a cncf project named VOLCANO, it is a Kubernetes batch scheduling system
 it was built to extend and enhance the capabilities kube-scheduler
+
 
 ## What i Leaned 
 
@@ -17,6 +18,9 @@ it was built to extend and enhance the capabilities kube-scheduler
 - The difference between concurrency and parallelism
 - How Docker containerization works
 - How HTTP APIs are structured and how JSON bridges different systems
+
+## AIM 
+This project is an attempt to build a simplified version of what volcano does under the hood
 
 
 ## Features
