@@ -1,27 +1,20 @@
 # GoSchedule
 
-## What is this?
+A Go based job scheduler that prioritizes and runs jobs concurrently using a worker pool.
 
-A go scheduler used to prioritize jobs or run jobs concurrently or parallely 
+## Why I Built This
 
-## Why I built this
-I built this to get a better understanding of GOLANG, this is my first ever project, 
-this project helps me understand how API's work and also the scheduling bit. Ive wanted to learn the core concepts and explore on how job schedulings work under the hood
-The concept of error handling and the difference between concurrency and parallelism 
-I was actively contributing to a cncf project named VOLCANO, it is a Kubernetes batch scheduling system
-it was built to extend and enhance the capabilities kube-scheduler
+While actively contributing to Volcano — a CNCF batch scheduling system that extends 
+Kubernetes scheduling capabilities — I wanted to understand the core concepts behind 
+job scheduling from scratch. This project is my attempt to build a simplified version 
+of what Volcano does under the hood. It helped me understand how APIs work, how 
+concurrency differs from parallelism, and how error handling works in real systems.
 
-
-## What i Leaned 
-
+## What I Learned
 - How goroutines and channels work in Go
 - The difference between concurrency and parallelism
 - How Docker containerization works
 - How HTTP APIs are structured and how JSON bridges different systems
-
-## AIM 
-This project is an attempt to build a simplified version of what volcano does under the hood
-
 
 ## Features
 - Priority based job scheduling
@@ -31,21 +24,29 @@ This project is an attempt to build a simplified version of what volcano does un
 - JSON based job submission
 - Containerized with Docker
 
-## How to run it
+## How to Run
 
-### Normal:
+**Normal:**
+```bash
 go run main.go
+```
 
-### With Docker:
+**With Docker:**
+```bash
 docker build -t scheduler .
 docker run -p 9090:9090 scheduler
+```
 
 ## API
-GET /jobs - returns all jobs and their status
-POST /add - add a new job
-sends a JSON body like: 
+
+**GET /jobs** - returns all jobs and their current status
+
+**POST /add** - add a new job by sending a JSON body:
+```json
 {
     "name": "job name",
     "priority": 1,
     "error": false
 }
+```
+Lower priority number runs first.
