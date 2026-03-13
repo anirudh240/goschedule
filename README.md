@@ -1,7 +1,7 @@
 # GoSchedule
 
 ## What is this?
-(one paragraph — what does this project do, explain it like you're telling a friend)
+
 A go scheduler used to prioritize jobs or run jobs concurrently or parallely 
 
 ## Why I built this
