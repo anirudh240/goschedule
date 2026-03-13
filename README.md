@@ -11,6 +11,13 @@ The concept of error handling and the difference between concurrency and paralle
 I was actively contributing to a cncf project named VOLCANO, it is a Kubernetes batch scheduling system
 it was built to extend and enhance the capabilities kube-scheduler
 
+## What i Leaned 
+
+- How goroutines and channels work in Go
+- The difference between concurrency and parallelism
+- How Docker containerization works
+- How HTTP APIs are structured and how JSON bridges different systems
+
 
 ## Features
 - Priority based job scheduling
