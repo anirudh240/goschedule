@@ -4,9 +4,9 @@ A Go based job scheduler that prioritizes and runs jobs concurrently using a wor
 
 ## Why I Built This
 
-While actively contributing to Volcano — a CNCF batch scheduling system that extends 
-Kubernetes scheduling capabilities — I wanted to understand the core concepts behind 
-job scheduling from scratch. This project is my attempt to build a simplified version 
+While actively contributing to Volcano — a CNCF batch scheduling system that extends and enhances 
+Kubernetes native batch Scheduling  — I wanted to understand and explore the core concepts behind 
+job scheduling. This project is my attempt to build a simplified version 
 of what Volcano does under the hood. It helped me understand how APIs work, how 
 concurrency differs from parallelism, and how error handling works in real systems.
 
