@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goschedule
+  labels:
+    app: goschedule
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: goschedule
+  template:
+    metadata:
+      labels:
+        app: goschedule
+    spec:
+      containers:
+      - name: scheduler
+        image: scheduler
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9090 
