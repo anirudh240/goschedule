@@ -50,3 +50,44 @@ docker run -p 9090:9090 scheduler
 }
 ```
 Lower priority number runs first.
+
+
+## Kubernetes Deployment
+
+This project can be deployed on a Kubernetes cluster using the provided manifests.
+
+### Prerequisites
+- Docker
+- Minikube
+- kubectl
+
+### Deploy locally with Minikube
+
+Start your cluster:
+```bash
+minikube start
+```
+
+Load the Docker image into minikube:
+```bash
+minikube image load scheduler
+```
+
+Apply the manifests:
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
+
+Access the scheduler:
+```bash
+minikube service goschedule-service
+```
+
+Then hit `/jobs` on the URL minikube gives you.
+
+### What Kubernetes does here
+- Runs 2 replicas of the scheduler simultaneously
+- Automatically restarts pods if they crash
+- Exposes the scheduler via a Service
+- Maintains desired state forever — delete a pod and Kubernetes spins up a new one instantly
