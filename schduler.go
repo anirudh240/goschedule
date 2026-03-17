@@ -56,7 +56,7 @@ func main() {
 	// HTTP method which exposes this program to API
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { // w is what we write to the server and r is what we recieve
-		fmt.Fprintln(w, "Scheduler is running")
+		fmt.Fprintln(w, "Scheduler is up and running")
 	})
 
 	http.HandleFunc("/jobs", func(w http.ResponseWriter, r *http.Request) {
@@ -104,3 +104,37 @@ func main() {
 
 	select {}
 }
+
+// TO GET the best understanding of the overall code, try adding wg.wait() and the print statement insdie the for loop
+// TRY ADDING wg.ADD inside the first function
+
+// adding priorities in this queue
+// we would start with making changes inside the struct
+
+//then we add priority inside the func main where we did
+// queue := []Job {}
+
+// this still ends up running concurrently(jobs running without prio)
+
+//concurrency is used for speed and concurrency is not parallelism
+// sequential prio is used for hospital systems etc
+
+//better and the last example is a web server which tells "handle all requests concurrently but paid users get priority"
+
+//for _, job := range queue copies the data from slice into job variable and so when the status changes to completed it never changes because its copied
+
+// for i := range changes the original thing which is better in this case cuz we are changing the status manually later
+
+// Q1: What happens if you put wg.Add(1) inside processJob instead of main — why would that break things?
+// Q2: You wrote &queue[i] — what does the & do and what would happen if you just wrote queue[i]?
+// Q3: Your sort uses queue[i].Priority < queue[j].Priority — if you changed < to > what changes in the output?
+// Q4: Why does wg.Wait() being inside the loop make it sequential and outside make it concurrent — explain it in your own words like you're explaining to a friend?
+//
+//
+// wg.Add(1) if we put it inside the process job, the program would run but the program doesnt know waht to increment like the output would be 'all tasks finsihed" and one rroutine would run but nothing else would get printed and the program woud likely end (RACE CONDITION)
+//
+// when we are writing & here we are making sure go doesnt make a copy of the queue and make changes there, when writing & we are making sure everything comes back to the same address
+//
+// i think nothing would change with < and > considering the outputs were always random, this is a concurrency inclined program and not a sequential prio program
+//
+// wg.Wait() if we add inside the for loop, the loop waits after printing evry task once and then prints the end too but it waits after every iteration which is not the desired output
