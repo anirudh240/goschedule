@@ -136,5 +136,5 @@ func main() {
 // when we are writing & here we are making sure go doesnt make a copy of the queue and make changes there, when writing & we are making sure everything comes back to the same address
 //
 // i think nothing would change with < and > considering the outputs were always random, this is a concurrency inclined program and not a sequential prio program
-//
+
 // wg.Wait() if we add inside the for loop, the loop waits after printing evry task once and then prints the end too but it waits after every iteration which is not the desired output
