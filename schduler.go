@@ -132,7 +132,7 @@ func main() {
 //
 
 // wg.Add(1) if we put it inside the process job, the program would run but the program doesnt know waht to increment like the output would be 'all tasks finsihed" and one rroutine would run but nothing else would get printed and the program woud likely end (RACE CONDITION)
-//
+
 // when we are writing & here we are making sure go doesnt make a copy of the queue and make changes there, when writing & we are making sure everything comes back to the same address
 //
 // i think nothing would change with < and > considering the outputs were always random, this is a concurrency inclined program and not a sequential prio program 
