@@ -17,13 +17,11 @@ type Job struct {
 	Error    bool // Error handling
 }
 
-// the function below is for the channels
+// function is for channels
 
 func worker(jobChannel chan *Job, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for job := range jobChannel {
-
-		// error handling situation
 
 		if job.Error {
 			job.Status = "Failed"
