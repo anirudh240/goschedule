@@ -54,7 +54,7 @@ Lower priority number runs first.
 
 ## Kubernetes Deployment
 
-This project can be deployed on a Kubernetes cluster using the provided manifests.
+project can be deployed on a Kubernetes cluster using the provided manifests.
 
 ### Prerequisites
 - Docker
